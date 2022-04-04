@@ -3,22 +3,20 @@ export function scrolled(trigger) {
 	return window.scrollY > trigger ? true : false;
 }
 
-
 let dir = undefined;
 let scrollCurrent;
 let scrollPrevious;
 
 export function scrollDirection() {
 	// Set if the window scroll up or down
-	scrollCurrent > scrollPrevious ? dir = 'down' : dir = 'up';
+	scrollCurrent > scrollPrevious ? (dir = "down") : (dir = "up");
 
 	// Update the scroll position
 	scrollPrevious = scrollCurrent;
 	scrollCurrent = window.scrollY;
 
-	return window.scrollY > 1 ? dir : 'top';
+	return window.scrollY > 1 ? dir : "top";
 }
-
 
 export function scrollPosition() {
 	const scrollArea = pageHeight() - document.documentElement.clientHeight;
@@ -30,23 +28,24 @@ export function scrollPosition() {
 	}
 }
 
-
 export function scrollPercentage(currentScrollPosition) {
 	const scrollArea = pageHeight() - document.documentElement.clientHeight;
 
 	if (scrollArea > 1) {
-		const scrollPercentage = currentScrollPosition * 100 / scrollArea;
-		return Math.round(scrollPercentage)
+		const scrollPercentage = (currentScrollPosition * 100) / scrollArea;
+		return Math.round(scrollPercentage);
 	} else {
 		return undefined;
 	}
 }
 
-
 function pageHeight() {
 	return Math.max(
-		document.body.scrollHeight, document.documentElement.scrollHeight,
-		document.body.offsetHeight, document.documentElement.offsetHeight,
-		document.body.clientHeight, document.documentElement.clientHeight
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.body.clientHeight,
+		document.documentElement.clientHeight
 	);
 }
