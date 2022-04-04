@@ -90,4 +90,15 @@ export default function () {
 		);
 		return { name: browserName, version: browserVersion };
 	}
+
+	// Other emulated devices
+	if (navigator.vendor === '') {
+		versionInit = navigator.appVersion.slice(0, 4) + 10;
+		browserName = "emulated";
+		browserVersion = navigator.appVersion.substring(
+			versionInit,
+			versionInit + 2
+		);
+		return { name: browserName, version: browserVersion };
+	}
 }
