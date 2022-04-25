@@ -6,8 +6,8 @@ export default function () {
 
 	// Google Chrome
 	if (
-		navigator.vendor.indexOf("Google") != -1 &&
-		navigator.appVersion.indexOf("Chrome") != -1
+		navigator.vendor.indexOf("Google") !== -1 &&
+		navigator.appVersion.indexOf("Chrome") !== -1
 	) {
 		versionInit = navigator.appVersion.indexOf("Chrome") + 7;
 		browserName = "chrome";
@@ -20,8 +20,8 @@ export default function () {
 
 	// Safari
 	if (
-		navigator.vendor.indexOf("Apple") != -1 &&
-		navigator.appVersion.indexOf("Safari") != -1
+		navigator.vendor.indexOf("Apple") !== -1 &&
+		navigator.appVersion.indexOf("Safari") !== -1
 	) {
 		versionInit = navigator.appVersion.indexOf("Version") + 8;
 		browserName = "safari";
@@ -35,7 +35,7 @@ export default function () {
 	// Mozilla Firefox
 	if (
 		navigator.appCodeName == "Mozilla" &&
-		navigator.userAgent.indexOf("Firefox") != -1
+		navigator.userAgent.indexOf("Firefox") !== -1
 	) {
 		versionInit = navigator.userAgent.indexOf("Firefox") + 8;
 		browserName = "firefox";
@@ -47,7 +47,7 @@ export default function () {
 	}
 
 	// Edge
-	if (navigator.appVersion.indexOf("Edge") != -1) {
+	if (navigator.appVersion.indexOf("Edge") !== -1) {
 		versionInit = navigator.appVersion.indexOf("Edge") + 5;
 		browserName = "edge";
 		browserVersion = navigator.appVersion.substring(
@@ -58,7 +58,7 @@ export default function () {
 	}
 
 	// IE
-	if (navigator.appVersion.indexOf("Trident") != -1) {
+	if (navigator.appVersion.indexOf("Trident") !== -1) {
 		browserName = "ie";
 		versionInit = navigator.appVersion.indexOf("Trident") + 8;
 		let tridentVersion = navigator.appVersion.substring(
@@ -81,7 +81,7 @@ export default function () {
 	}
 
 	// Google Chrome emulating a device
-	if (navigator.vendor.indexOf("Google Inc.") != -1) {
+	if (navigator.vendor.indexOf("Google Inc.") !== -1) {
 		versionInit = navigator.appVersion.indexOf("Chrome") + 7;
 		browserName = "chrome";
 		browserVersion = navigator.appVersion.substring(
@@ -92,13 +92,8 @@ export default function () {
 	}
 
 	// Other emulated devices
-	if (navigator.vendor === '') {
-		versionInit = navigator.appVersion.slice(0, 4) + 10;
-		browserName = "emulated";
-		browserVersion = navigator.appVersion.substring(
-			versionInit,
-			versionInit + 2
-		);
-		return { name: browserName, version: browserVersion };
-	}
+	versionInit = navigator.appVersion.slice(0, 4) + 10;
+	browserName = "emulated";
+	browserVersion = navigator.appVersion.substring(versionInit, versionInit + 2);
+	return { name: browserName, version: browserVersion };
 }
