@@ -12,8 +12,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "start": "rollup -c -w",
-    "prepare": "npm run build"
+    "start": "rollup -c -w"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
