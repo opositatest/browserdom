@@ -1,4 +1,5 @@
 import babel from "rollup-plugin-babel";
+import { terser } from "rollup-plugin-terser";
 
 module.exports = {
 	input: "src/browserdom.js",
@@ -11,5 +12,6 @@ module.exports = {
 		babel({
 			exclude: "node_modules/**", // only transpile our source code
 		}),
+		terser(),
 	],
 };

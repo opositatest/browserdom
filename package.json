@@ -1,7 +1,7 @@
 {
   "name": "browserdom",
   "license": "MIT",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "[FORK] Get browser environment info and print it in the DOM.",
   "author": "OpositaTest",
   "browser": "./dist/browserdom.min.js",
@@ -17,7 +17,8 @@
     "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/preset-env": "^7.4.3",
     "rollup": "^1.8.0",
-    "rollup-plugin-babel": "^4.3.2"
+    "rollup-plugin-babel": "^4.3.2",
+		"rollup-plugin-terser": "^4.0.4"
   },
   "keywords": [
     "js",
